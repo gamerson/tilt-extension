@@ -1,3 +1,0 @@
-def lxc_remoteapp(name='', command='', deps=[], ignore=[], kustomize_path=''):
-  custom_build(name, command, deps, ignore=ignore)
-  k8s_yaml(kustomize(kustomize_path))
