@@ -1,0 +1,7 @@
+def darwin_patch(yaml):
+  if local("uname") == "Darwin":
+    ip = str(local('minikube ip')).strip()
+    patched = local('yq \'.spec.template.spec += {"hostAliases": [{"ip":"' + ip + '", "hostnames": ["dxp.localdev.me"]}]}\'', stdin=str(yaml))
+    return patched
+  else:
+    return yaml

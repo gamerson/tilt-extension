@@ -1,0 +1,5 @@
+load('../darwin_patch/Tiltfile', 'darwin_patch')
+
+def lxc_webhook(name='', command='', deps=[], ignore=[], kustomize_path=''):
+  custom_build(name, command, deps, ignore=ignore)
+  k8s_yaml(darwin_patch(kustomize(kustomize_path)))
